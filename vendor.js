@@ -1,0 +1,14 @@
+require("babel-polyfill");
+require("es6-object-assign/auto");
+require("react");
+require("react-big-calendar");
+require("react-dom");
+require("react-redux");
+require("react-router");
+require("react-select");
+require("react-tap-event-plugin");
+require("redux");
+require("es6-promise");
+require('babel-polyfill');
+require('create-react-class');
+require('moment');
