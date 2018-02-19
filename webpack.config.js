@@ -32,7 +32,7 @@ module.exports =  {
         ,
     ],
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
@@ -46,12 +46,25 @@ module.exports =  {
             {
                 test: /\.css$/,
                 include: [/node_modules/, path.join(__dirname, "./lib/css")],
-                loaders: ['style-loader', 'css-loader'],
+                use: [
+                    {
+                        loader: 'style-loader'
+                    }, 
+                    {
+                        loader: 'css-loader'
+                    }
+                ],
             },
             {
                 test: /\.tsx?$/,
-                loader: "awesome-typescript-loader",
-                include: [path.join(__dirname, "./src"), path.join(__dirname, "./lib")],
+                use: {
+                    loader: "awesome-typescript-loader",
+                    options: {
+                        useCache: true,
+                        silent: true,
+                    }
+                },
+                include: [path.join(__dirname, "./src")],
             }
         ]
     }
